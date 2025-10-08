@@ -23,7 +23,7 @@ export default function RootLayout({
     <html lang="en" className={montserrat.variable}>
       <body className="h-full">
         <Providers>
-          <AppInitializer />
+          {/* <AppInitializer /> */}
           {children}
           <Toaster
             position="top-right"

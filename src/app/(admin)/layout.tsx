@@ -15,16 +15,16 @@ const montserrat = Montserrat({
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
   const router = useRouter();
 
-  // Get admin login state from Redux
-  const isAdminLoggedIn = useSelector(
-    (state: { admin: AdminState }) => state.admin.isAdminLoggedIn
-  );
+  // // Get admin login state from Redux
+  // const isAdminLoggedIn = useSelector(
+  //   (state: { admin: AdminState }) => state.admin.isAdminLoggedIn
+  // );
 
-  // Redirect to login if not logged in
-  if (!isAdminLoggedIn) {
-    router.push("/login");
-    return null; // Prevent rendering
-  }
+  // // Redirect to login if not logged in
+  // if (!isAdminLoggedIn) {
+  //   router.push("/login");
+  //   return null; // Prevent rendering
+  // }
 
   return (
     <div className={`${montserrat.variable} h-screen bg-app-bg`}>

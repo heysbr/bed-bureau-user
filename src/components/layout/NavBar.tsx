@@ -22,15 +22,20 @@ import { AppDispatch } from "@/store/store";
 import { adminLogout } from "@/store/actions/adminAction";
 import ProfileSection from "./ProfileSection";
 
+import GridIcon from "@/assets/icons/grid.svg"
+import GridIconSelected from "@/assets/icons/grid_selected.svg"
+
 export default function NavBar() {
   const router = useRouter();
   const pathname = usePathname();
   const [toggleTab, setToggleTab] = useState(pathname);
 
   const navItems = [
-    { label: "Manage Client", path: "/manage-client" },
-    { label: "Update Profile", path: "/update-profile" },
-    { label: "Reset Password", path: "/reset-password" },
+    { label: "Manage Wards", path: "/manage-client" },
+    { label: "Manage Admin", path: "/update-profile" },
+    { label: "Audit Trails", path: "/reset-password" },
+    { label: "Reports", path: "/reset-password" },
+    { label: "Geography", path: "/reset-password" },
   ];
   useEffect(() => {
     setToggleTab(pathname);
@@ -59,9 +64,13 @@ export default function NavBar() {
       {/* Desktop Menu */}
       <div className="hidden md:flex flex-1 justify-between items-center px-5">
         <div className="flex gap-4">
-          {navItems.map((item) => (
+          <Image src={GridIcon} alt="grid" className="text-[]"/>
+          {/* <Image src={GridIconSelected} alt="grid" className=""/> */}
+
+          {navItems.map((item,i) => (
             <Button
-              key={item.path}
+              // key={item.path}
+              key={i}
               variant={
                 toggleTab.includes(item.path) ? "navBtnActive" : "navBtn"
               }
@@ -75,7 +84,7 @@ export default function NavBar() {
           ))}
         </div>
 
-        <div className="flex items-center">
+        {/* <div className="flex items-center">
           <Button
             className="mx-5"
             variant="navBtn"
@@ -85,7 +94,8 @@ export default function NavBar() {
             Logout
           </Button>
           <div className="h-8 bg-[#DCDFE9] w-[1px]" />
-        </div>
+
+        </div> */}
       </div>
 
       {/* Mobile Menu Button */}
