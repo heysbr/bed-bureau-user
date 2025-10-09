@@ -25,6 +25,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   //   router.push("/login");
   //   return null; // Prevent rendering
   // }
+  
 
   return (
     <div className={`${montserrat.variable} h-screen bg-app-bg`}>
@@ -33,5 +34,5 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         {children}
       </div>
     </div>
-  );
+  ); 
 }
