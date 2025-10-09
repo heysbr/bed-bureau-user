@@ -6,6 +6,16 @@ import TextField from "@/components/forms/TextField";
 import UploadField from "@/components/forms/UploadField";
 import type { FieldType, FieldConfig } from "@/lib/SchemaGenerator";
 
+//Dashboard Card data
+import CurrentOccupiedBeds from "@/assets/icons/DashboardCards/CurrentOccupiedBeds.svg"
+import TotalWardCapacity from "@/assets/icons/DashboardCards/TotalWardCapacity.svg"
+import ConfirmedDischargesToday from "@/assets/icons/DashboardCards/ConfirmedDischargesToday.svg"
+import PendingDischargeTomorrow from "@/assets/icons/DashboardCards/PendingDischargeTomorrow.svg"
+import TotalDelays from "@/assets/icons/DashboardCards/TotalDelays.svg"
+import TotalStepUpBeds from "@/assets/icons/DashboardCards/TotalStepUpBeds.svg"
+import TotalStepDownBeds from "@/assets/icons/DashboardCards/TotalStepDownBeds.svg"
+import NumberOfBeds from "@/assets/icons/DashboardCards/NumberOfBeds.svg"
+
 interface FormFieldProps {
   name: string;
   type?: FieldType;
@@ -388,3 +398,15 @@ export const clients = [
     status: "Active",
   },
 ];
+
+
+export const dashboardCardData =[
+  {label:"Number Of Beds Available", value:28, icon : NumberOfBeds },
+  {label:"Current Occupied Beds", value:8, icon : CurrentOccupiedBeds },
+  {label:"Total Ward Capacity", value:25, icon : TotalWardCapacity },
+  {label:"Confirmed Discharges Today", value:5, icon : ConfirmedDischargesToday },
+  {label:"Pending Discharges Tomorrow", value:3, icon : PendingDischargeTomorrow },
+  {label:"Total Delays (over 24 hours)", value:2, icon : TotalDelays},
+  {label:"Total Step up Beds", value:3, icon : TotalStepUpBeds },
+  {label:"Total Step down Beds", value:12, icon : TotalStepDownBeds},
+]
