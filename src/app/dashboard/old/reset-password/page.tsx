@@ -45,7 +45,6 @@ export default function Page() {
   return (
     <>
       <div className="space-y-6">
-        <PageTitle />
 
         <div className="flex flex-row justify-center ">
           <form

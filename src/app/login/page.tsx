@@ -17,7 +17,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState, AppDispatch } from "@/store/store";
 import { adminLogin } from "@/store/actions/adminAction";
 import toast from "react-hot-toast";
-import { LoaderCircle } from "lucide-react";
 import Heading from "@/components/layout/Heading";
 
 // const schema = generateSchema(LoginFields);
@@ -53,7 +52,7 @@ export default function LoginPage() {
       // const result = 
       await dispatch(adminLogin(loginPayload)).unwrap();
       toast.success("Login successful!"); // ✅ success toast
-      router.push("/manage-client"); // Redirect to manage-client
+      router.push("/dashboard"); // Redirect to manage-client
     } catch (err: unknown) {
       const errorMessage = err instanceof Error ? err.message : "Login failed";
       toast.error(errorMessage); // ❌ error toast
@@ -73,7 +72,7 @@ export default function LoginPage() {
       </div>
 
       <div className="flex flex-col md:h-full gap-y-5 p-5 w-full md:w-fit py-20 md:items-end  md:justify-center">
-        <PageTitle className="md:hidden" />
+        <PageTitle className="md:hidden" title="Login" />
        
         <form
           onSubmit={handleSubmit(submit)}

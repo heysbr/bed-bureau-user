@@ -1,5 +1,10 @@
+import PageTitle from "@/components/layout/PageTittle";
+
 export default function Reports() {
   return (
-    <div>Reports</div>
-  )
+    <>
+      <PageTitle title="Reports" />
+      <div>Reports</div>
+    </>
+  );
 }

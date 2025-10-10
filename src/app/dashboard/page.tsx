@@ -21,7 +21,7 @@ export default function Page() {
 
   return (
     <div className="space-y-6">
-      <PageTitle />
+      <PageTitle title="Dashboard" />
       <div className="flex justify-end gap-5">
         <DropDownSearch />
         <DropDownSearch placeholder="All (Ward Type)" />

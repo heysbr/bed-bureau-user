@@ -30,7 +30,6 @@ export default function Page() {
   return (
     <>
       <div className="space-y-6">
-        <PageTitle />
 
         <div className="flex flex-row justify-center">
           <form onSubmit={handleSubmit(submit)} className="flex flex-col bg-white md:p-20 p-5 space-y-2 md:space-y-6 w-full md:w-125 rounded-lg shadow-[0px_4px_15px_0px_#DFE5F0]">

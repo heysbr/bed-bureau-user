@@ -51,7 +51,7 @@ export default function Page() {
 
   return (
     <div className="space-y-6">
-      <PageTitle />
+      <PageTitle title="Audit Trails" />
       <div className="flex justify-between gap-5">
         <SearchField />
 

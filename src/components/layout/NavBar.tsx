@@ -46,6 +46,7 @@ export default function NavBar() {
   const handleLogout = async () => {
     try {
       await dispatch(adminLogout());
+      localStorage.clear();
       toast.success("Logout successful!");
       router.push("/login"); // or wherever you want to redirect
     } catch (err: unknown) {
@@ -54,12 +55,20 @@ export default function NavBar() {
     }
   };
 
+
+
+
   const handleClick = (path: string) => {
     setToggleTab(path);
     router.push(path);
   };
   return (
     <div className="flex border h-18 bg-white items-center ">
+      <Button 
+      onClick={handleLogout}
+      className=" border w-fit bg-app-primary absolute top-1 left-1 rounded-lg px-2 py-1 text-white">
+        Logout
+      </Button>
       {/* Left: Logo */}
       <div className="md:border-r pr-5 h-full flex items-center ml-5 md:ml-25 md:justify-end">
         <Image src={Logo} alt="Logo" />
@@ -110,18 +119,18 @@ export default function NavBar() {
 
             <div className="flex flex-col gap-4 m-6">
               <SheetClose asChild key={"/dashboard"}>
-                  <Button
-                    variant={
-                      toggleTab === "/dashboard" ? "navBtnActive" : "navBtn"
-                    }
-                    onClick={() => {
-                      setToggleTab("/dashboard");
-                      router.push("/dashboard");
-                    }}
-                  >
-                    Dashboard
-                  </Button>
-                </SheetClose>
+                <Button
+                  variant={
+                    toggleTab === "/dashboard" ? "navBtnActive" : "navBtn"
+                  }
+                  onClick={() => {
+                    setToggleTab("/dashboard");
+                    router.push("/dashboard");
+                  }}
+                >
+                  Dashboard
+                </Button>
+              </SheetClose>
               {navItems.map((item) => (
                 <SheetClose asChild key={item.path}>
                   <Button

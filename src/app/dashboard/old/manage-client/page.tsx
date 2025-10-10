@@ -51,7 +51,6 @@ export default function Page() {
 
   return (
     <div className="space-y-6">
-      <PageTitle />
       <div className="flex justify-between gap-5">
         <SearchField />
 

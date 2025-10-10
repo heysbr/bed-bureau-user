@@ -52,7 +52,7 @@ export default function Page() {
 
   return (
     <div className="space-y-6">
-      <PageTitle />
+      <PageTitle title="Manage Wards"/>
       <div className="flex justify-between gap-5">
         <SearchField />
 
