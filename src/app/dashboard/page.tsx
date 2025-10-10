@@ -18,6 +18,7 @@ export default function Page() {
   //     router.replace("../login"); // client-side safety net
   //   }
   // }, [router]);
+  
 
   return (
     <div className="space-y-6">
