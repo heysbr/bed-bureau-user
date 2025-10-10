@@ -26,6 +26,8 @@ export default function GeographyTable() {
   // //   }
   // }
 
+
+  
   return (
     <>
       <Table>

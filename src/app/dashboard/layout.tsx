@@ -30,7 +30,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   return (
     <div className={`${montserrat.variable} h-screen bg-app-bg`}>
       <NavBar />
-      <div className="p-5 md:py-10 md:px-25">
+      <div className="p-5 md:py-10 md:px-25 md:pb-25">
         {children}
       </div>
     </div>
