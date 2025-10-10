@@ -2,7 +2,6 @@
 import Charts from "@/components/layout/Charts";
 import DropDownSearch from "@/components/layout/DropDownSearch";
 import PageTitle from "@/components/layout/PageTittle";
-import SearchField from "@/components/layout/SearchField";
 import { Button } from "@/components/ui/button";
 
 import { dashboardCardData as cards } from "@/data/fields";

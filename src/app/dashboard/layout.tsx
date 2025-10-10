@@ -1,4 +1,4 @@
-'use client'; // Must be client to use useRouter & Redux
+'use client';
 
 import { useRouter } from "next/navigation";
 import { useSelector } from "react-redux";
