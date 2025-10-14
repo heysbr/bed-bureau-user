@@ -4,9 +4,9 @@ import {
   Card,
   CardContent,
   CardDescription,
-  CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+
 import {
   Select,
   SelectContent,
@@ -23,7 +23,6 @@ import {
   YAxis,
   ResponsiveContainer,
 } from "recharts";
-import { TrendingUp } from "lucide-react";
 
 const data = [
   { day: "1", beds: 32 },
@@ -57,7 +56,6 @@ const data = [
   { day: "29", beds: 34 },
   { day: "30", beds: 13 },
   { day: "31", beds: 26 },
-  // ...add more for 31 days
 ];
 
 export default function AnalyticsCard() {
@@ -69,7 +67,7 @@ export default function AnalyticsCard() {
           <CardDescription>01/10/2023 - 31/10/2023</CardDescription>
         </div>
 
-        <div className="flex items-center gap-3 mt-4 sm:mt-0">
+        <div className="flex flex-col md:flex-row md:items-center gap-5 mt-4 sm:mt-0">
           <Select defaultValue="beds">
             <SelectTrigger className="w-fit">
               <SelectValue placeholder="Select metric" />

@@ -15,7 +15,6 @@ import TotalDelays from "@/assets/icons/DashboardCards/TotalDelays.svg";
 import TotalStepUpBeds from "@/assets/icons/DashboardCards/TotalStepUpBeds.svg";
 import TotalStepDownBeds from "@/assets/icons/DashboardCards/TotalStepDownBeds.svg";
 import NumberOfBeds from "@/assets/icons/DashboardCards/NumberOfBeds.svg";
-import { title } from "process";
 
 interface FormFieldProps {
   name: string;

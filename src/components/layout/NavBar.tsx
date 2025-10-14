@@ -43,7 +43,7 @@ export default function NavBar() {
 
   const dispatch = useDispatch<AppDispatch>();
 
-  const handleLogout = async () => {
+const handleLogout = async () => {
     try {
       await dispatch(adminLogout());
       localStorage.clear();
@@ -64,11 +64,6 @@ export default function NavBar() {
   };
   return (
     <div className="flex border h-18 bg-white items-center ">
-      <Button 
-      onClick={handleLogout}
-      className=" border w-fit bg-app-primary absolute top-1 left-1 rounded-lg px-2 py-1 text-white">
-        Logout
-      </Button>
       {/* Left: Logo */}
       <div className="md:border-r pr-5 h-full flex items-center ml-5 md:ml-25 md:justify-end">
         <Image src={Logo} alt="Logo" />
@@ -156,7 +151,7 @@ export default function NavBar() {
       </div>
 
       {/* Right: Profile */}
-      <ProfileSection />
+      <ProfileSection logout={handleLogout} />
     </div>
   );
 }

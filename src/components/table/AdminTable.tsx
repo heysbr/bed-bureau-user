@@ -4,9 +4,12 @@ import { EllipsisVertical } from "lucide-react";
 import Pagination from "@/components/table/Pagination";
 import { DropdownMenu } from "@radix-ui/react-dropdown-menu";
 import { DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger, } from "@/components/ui/dropdown-menu";
+
+
 import { useRouter } from "next/navigation";
 import { ListOfAdmins as clients } from "@/data/fields";
 import { useState } from "react";
+import Image from "next/image";
 
 export default function AdminTable() {
   const router = useRouter();

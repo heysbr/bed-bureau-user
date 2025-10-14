@@ -22,7 +22,8 @@ export default function EmailField({
         {required && <span className="text-red-500">*</span>}
       </Label>
       <Input {...props} />
-      {error && <Error message={error} />}
+      {/* {error && <Error message={error} />} */}
+      <Error message={error as string} active={error ? true : false }/>
     </div>
   );
 }

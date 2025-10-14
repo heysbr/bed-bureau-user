@@ -22,14 +22,14 @@ export default function Page() {
   return (
     <div className="space-y-6">
       <PageTitle title="Dashboard" />
-      <div className="flex justify-end gap-5">
+      <div className="flex flex-col md:flex-row justify-end gap-5">
         <DropDownSearch />
         <DropDownSearch placeholder="All (Ward Type)" />
         <Button className="rounded-2xl bg-white text-black shadow-2xl">
           Clear All
         </Button>
       </div>
-      <div className="grid grid-cols-4 rounded-2xl gap-x-8 gap-y-8">
+      <div className=" flex flex-col md:grid grid-cols-4 rounded-2xl gap-x-8 gap-y-8">
         {cards.map((card, i) => (
           <div
             className="relative bg-white rounded-lg shadow-[0_12px_26px_0_rgba(188,188,188,0.15)] p-5"
