@@ -1,13 +1,23 @@
 "use client";
-import {Table, TableBody, TableCell, TableHead, TableHeader, TableRow, } from "@/components/ui/table";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
 import { EllipsisVertical } from "lucide-react";
 import Pagination from "@/components/table/Pagination";
 import { DropdownMenu } from "@radix-ui/react-dropdown-menu";
-import { DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger, } from "@/components/ui/dropdown-menu";
+import {
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import { useRouter } from "next/navigation";
-import { ListOfAdmins as clients } from "@/data/fields";
 import { useState } from "react";
-import {ListOfAllGeography} from "@/data/fields"
+import { ListOfAllGeography } from "@/data/fields";
 
 export default function GeographyTable() {
   const router = useRouter();
@@ -19,26 +29,20 @@ export default function GeographyTable() {
   const startIdx = (page - 1) * CARDS_PER_PAGE;
   const currentData = dataList.slice(startIdx, startIdx + CARDS_PER_PAGE);
 
-  // // function handleRemove(id: number) {
-  // //   setDataList((prev) => prev.filter((item) => item.id !== id));
-  // //   if (page > 1 && currentData.length === 1) {
-  // //     setPage((prev) => prev - 1); // shift back if page gets empty
-  // //   }
-  // }
-
-
-  
   return (
     <>
       <Table>
         <TableHeader>
           <TableRow>
-            <TableHead colSpan={8} className="text-xl font-medium p-5">
-              List of All Admins
+            <TableHead
+              colSpan={8}
+              className="text-xl font-medium p-5 text-left"
+            >
+              List of All Geography
             </TableHead>
           </TableRow>
           <TableRow className="bg-app-table-header hover:bg-app-table-header">
-            <TableHead className="px-5 text-center">S. No.</TableHead>
+            <TableHead className="px-5 text-center w-[80px]">S. No.</TableHead>
             <TableHead>Title</TableHead>
             <TableHead>Date &nbsp; Time</TableHead>
             <TableHead>Action</TableHead>
@@ -47,7 +51,7 @@ export default function GeographyTable() {
         <TableBody>
           {currentData.map((client) => (
             <TableRow key={client.id}>
-              <TableCell className="font-medium px-5 text-center">
+              <TableCell className="font-medium px-5 text-center w-[80px]">
                 {client.id}
               </TableCell>
               <TableCell>{client.title}</TableCell>
@@ -80,7 +84,7 @@ export default function GeographyTable() {
           ))}
         </TableBody>
       </Table>
-      <Pagination setPage={setPage} page={page} totalPages={totalPages}/>
+      <Pagination setPage={setPage} page={page} totalPages={totalPages} />
     </>
   );
 }

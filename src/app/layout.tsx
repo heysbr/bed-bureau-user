@@ -9,6 +9,8 @@ const montserrat = Montserrat({
   variable: "--font-montserrat",
 });
 
+
+
 export const metadata = {
   title: "My App",
   description: "Next.js with Montserrat",

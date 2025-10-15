@@ -30,35 +30,31 @@ export default function WardsTable() {
   const startIdx = (page - 1) * CARDS_PER_PAGE;
   const currentData = dataList.slice(startIdx, startIdx + CARDS_PER_PAGE);
 
-  // // function handleRemove(id: number) {
-  // //   setDataList((prev) => prev.filter((item) => item.id !== id));
-  // //   if (page > 1 && currentData.length === 1) {
-  // //     setPage((prev) => prev - 1); // shift back if page gets empty
-  // //   }
-  // }
-
   return (
     <>
-      <Table>
+      <Table className="w-full ">
         <TableHeader>
           <TableRow>
-            <TableHead colSpan={8} className="text-xl font-medium p-5">
+            <TableHead
+              colSpan={8}
+              className="text-xl font-medium p-5 text-left"
+            >
               List of All Wards
             </TableHead>
           </TableRow>
-          <TableRow className="bg-app-table-header hover:bg-app-table-header">
-            <TableHead className="px-5 text-center">S. No.</TableHead>
-            <TableHead>Geography</TableHead>
-            <TableHead>Ward Name</TableHead>
-            <TableHead>Ward Type</TableHead>
-            <TableHead>No. of Beds</TableHead>
-            <TableHead>Occupied Beds</TableHead>
-            <TableHead>Reserve Beds</TableHead>
-            <TableHead>Available Beds</TableHead>
-            <TableHead>Discharging Today</TableHead>
-            <TableHead>Discharge Expired</TableHead>
-            <TableHead>Status</TableHead>
-            <TableHead>Action</TableHead>
+          <TableRow className="bg-app-table-header hover:bg-app-table-header ">
+            <TableHead className="w-[60px]">S. No.</TableHead>
+            <TableHead className="w-[180px] text-left">Geography</TableHead>
+            <TableHead className="w-[120px] text-left">Ward Name</TableHead>
+            <TableHead className="w-[100px] text-left">Ward Type</TableHead>
+            <TableHead className="w-[80px]">No. of Beds</TableHead>
+            <TableHead className="w-[80px]">Occupied Beds</TableHead>
+            <TableHead className="w-[80px]">Reserve Beds</TableHead>
+            <TableHead className="w-[80px]">Available Beds</TableHead>
+            <TableHead className="w-[80px]">Discharging Today</TableHead>
+            <TableHead className="w-[80px]">Discharge Expired</TableHead>
+            <TableHead className="w-[80px]">Status</TableHead>
+            <TableHead className="w-[80px]">Action</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
@@ -67,9 +63,9 @@ export default function WardsTable() {
               <TableCell className="font-medium px-5 text-center">
                 {client.id}
               </TableCell>
-              <TableCell>{client.Geography}</TableCell>
-              <TableCell>{client.WardName}</TableCell>
-              <TableCell>{client.WardType}</TableCell>
+              <TableCell className="text-left">{client.Geography}</TableCell>
+              <TableCell className="text-left">{client.WardName}</TableCell>
+              <TableCell className="text-left">{client.WardType}</TableCell>
               <TableCell>{client.NoOfBeds}</TableCell>
               <TableCell>{client.OccupiedBeds}</TableCell>
               <TableCell>{client.ReserveBeds}</TableCell>

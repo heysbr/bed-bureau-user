@@ -23,7 +23,7 @@ export default function ProfileSection({logout}:{logout:()=>void}) {
   return (
     <>
       <DropdownMenu>
-        <DropdownMenuTrigger>
+        <DropdownMenuTrigger className="hidden md:block">
             <div className="flex px-3 gap-2">
               <Image src={ProfileLogo} alt="Profile" />
               <div className="text-xs flex flex-col items-start">

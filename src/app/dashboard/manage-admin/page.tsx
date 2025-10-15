@@ -58,7 +58,7 @@ export default function Page() {
 
         <Dialog>
           <DialogTrigger asChild>
-            <Button variant="appBtn">Add Client</Button>
+            <Button variant="appBtn">Add Admin</Button>
           </DialogTrigger>
           <DialogContent className="px-0 rounded-lg">
             <DialogHeader>

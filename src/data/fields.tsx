@@ -125,6 +125,130 @@ export const ResetPasswordFields: FieldConfig[] = [
   },
 ];
 
+export const ListOfAuditTrails = [
+  {
+    id: 1,
+    geography: "Mid-Provide",
+    wardName: "Orthopedic",
+    personalEmail: "leslie.alexander@example.com",
+    registeredOn: "05 July 2022, 10:30 AM",
+    operations: "Client Logged In",
+  },
+  {
+    id: 2,
+    geography: "South West",
+    wardName: "CICC - IMC",
+    personalEmail: "ronald.richards@example.com",
+    registeredOn: "24 June 2022, 05:00 PM",
+    operations: "Client Logged In",
+  },
+  {
+    id: 3,
+    geography: "Berlin",
+    wardName: "Tower Ward",
+    personalEmail: "jane.cooper@example.com",
+    registeredOn: "20 June 2022, 12:00 PM",
+    operations: "Client Logged In",
+  },
+  {
+    id: 4,
+    geography: "Mid-Provide",
+    wardName: "Gibson Ward",
+    personalEmail: "robert.fox@gmail.com",
+    registeredOn: "14 June 2022, 01:30 PM",
+    operations: "Client Logged In",
+  },
+  {
+    id: 5,
+    geography: "South West",
+    wardName: "Mayfield Units",
+    personalEmail: "jenny.wilson@example.com",
+    registeredOn: "10 May 2022, 10:30 AM",
+    operations: "Bed occupied to NHS number (6473638837)",
+  },
+  {
+    id: 6,
+    geography: "East Side",
+    wardName: "Cardiology",
+    personalEmail: "alex.martin@example.com",
+    registeredOn: "15 July 2022, 09:45 AM",
+    operations: "Patient Discharged",
+  },
+  {
+    id: 7,
+    geography: "North Point",
+    wardName: "Surgery",
+    personalEmail: "emma.johnson@example.com",
+    registeredOn: "18 July 2022, 11:20 AM",
+    operations: "Client Logged In",
+  },
+  {
+    id: 8,
+    geography: "Central Park",
+    wardName: "ICU",
+    personalEmail: "michael.brown@example.com",
+    registeredOn: "20 July 2022, 02:00 PM",
+    operations: "Bed assigned to NHS number (9876543210)",
+  },
+  {
+    id: 9,
+    geography: "South West",
+    wardName: "Pediatrics",
+    personalEmail: "sarah.wilson@example.com",
+    registeredOn: "22 July 2022, 04:15 PM",
+    operations: "Client Logged In",
+  },
+  {
+    id: 10,
+    geography: "Mid-Provide",
+    wardName: "Oncology",
+    personalEmail: "daniel.moore@example.com",
+    registeredOn: "25 July 2022, 08:30 AM",
+    operations: "Patient record updated",
+  },
+  {
+    id: 11,
+    geography: "Berlin",
+    wardName: "Emergency",
+    personalEmail: "lisa.taylor@example.com",
+    registeredOn: "28 July 2022, 12:45 PM",
+    operations: "Client Logged In",
+  },
+  {
+    id: 12,
+    geography: "East Side",
+    wardName: "Neurology",
+    personalEmail: "joshua.harris@example.com",
+    registeredOn: "30 July 2022, 03:00 PM",
+    operations: "Bed assigned to NHS number (1234567890)",
+  },
+  {
+    id: 13,
+    geography: "Central Park",
+    wardName: "Radiology",
+    personalEmail: "olivia.martinez@example.com",
+    registeredOn: "01 August 2022, 10:10 AM",
+    operations: "Client Logged In",
+  },
+  {
+    id: 14,
+    geography: "North Point",
+    wardName: "Orthopedic",
+    personalEmail: "william.clark@example.com",
+    registeredOn: "03 August 2022, 05:30 PM",
+    operations: "Patient Discharged",
+  },
+  {
+    id: 15,
+    geography: "South West",
+    wardName: "ICU",
+    personalEmail: "sophia.lee@example.com",
+    registeredOn: "05 August 2022, 01:15 PM",
+    operations: "Client Logged In",
+  }
+];
+
+
 export const clients = [
   {
     id: 1,
@@ -421,8 +545,7 @@ export const dashboardCardData = [
 export const ListOfAdmins = [
   {
     id: 1,
-    Geography: "New York",
-    WardType: "",
+    location: "New York",
     AdminName: "Client name 1",
     AdminEmail: "leslie.alexander@example.com",
     registeredOn: "05 July 2022",
@@ -430,8 +553,7 @@ export const ListOfAdmins = [
   },
   {
     id: 2,
-    Geography: "London",
-    WardType: "",
+    location: "London",
     AdminName: "Client name 2",
     AdminEmail: "ronald.richards@example.com",
     registeredOn: "24 June 2022",
@@ -439,8 +561,7 @@ export const ListOfAdmins = [
   },
   {
     id: 3,
-    Geography: "Berlin",
-    WardType: "",
+    location: "Berlin",
     AdminName: "Client name 3",
     AdminEmail: "jane.cooper@example.com",
     registeredOn: "20 June 2022",
@@ -448,8 +569,7 @@ export const ListOfAdmins = [
   },
   {
     id: 4,
-    Geography: "Paris",
-    WardType: "",
+    location: "Paris",
     AdminName: "Client name 4",
     AdminEmail: "robert.fox@gmail.com",
     registeredOn: "14 June 2022",
@@ -457,8 +577,7 @@ export const ListOfAdmins = [
   },
   {
     id: 5,
-    Geography: "Toronto",
-    WardType: "",
+    location: "Toronto",
     AdminName: "Client name 5",
     AdminEmail: "jenny.wilson@example.com",
     registeredOn: "20 May 2022",
@@ -466,8 +585,7 @@ export const ListOfAdmins = [
   },
   {
     id: 6,
-    Geography: "Sydney",
-    WardType: "",
+    location: "Sydney",
     AdminName: "Client name 6",
     AdminEmail: "ronald.richards@example.com",
     registeredOn: "10 May 2022",
@@ -475,8 +593,7 @@ export const ListOfAdmins = [
   },
   {
     id: 7,
-    Geography: "Dubai",
-    WardType: "",
+    location: "Dubai",
     AdminName: "Client name 7",
     AdminEmail: "leslie.alexander@example.com",
     registeredOn: "20 May 2022",
@@ -484,8 +601,7 @@ export const ListOfAdmins = [
   },
   {
     id: 8,
-    Geography: "Tokyo",
-    WardType: "",
+    location: "Tokyo",
     AdminName: "Client name 8",
     AdminEmail: "robert.fox@gmail.com",
     registeredOn: "14 June 2022",
@@ -493,8 +609,7 @@ export const ListOfAdmins = [
   },
   {
     id: 9,
-    Geography: "Delhi",
-    WardType: "",
+    location: "Delhi",
     AdminName: "Client name 9",
     AdminEmail: "jenny.wilson@example.com",
     registeredOn: "20 June 2022",
@@ -502,8 +617,7 @@ export const ListOfAdmins = [
   },
   {
     id: 10,
-    Geography: "Singapore",
-    WardType: "",
+    location: "Singapore",
     AdminName: "Client name 10",
     AdminEmail: "ronald.richards@example.com",
     registeredOn: "10 May 2022",
@@ -511,8 +625,7 @@ export const ListOfAdmins = [
   },
   {
     id: 11,
-    Geography: "New York",
-    WardType: "",
+    location: "New York",
     AdminName: "Client name 11",
     AdminEmail: "leslie11@example.com",
     registeredOn: "05 July 2022",
@@ -520,8 +633,7 @@ export const ListOfAdmins = [
   },
   {
     id: 12,
-    Geography: "London",
-    WardType: "",
+    location: "London",
     AdminName: "Client name 12",
     AdminEmail: "ronald12@example.com",
     registeredOn: "24 June 2022",
@@ -529,8 +641,7 @@ export const ListOfAdmins = [
   },
   {
     id: 13,
-    Geography: "Berlin",
-    WardType: "",
+    location: "Berlin",
     AdminName: "Client name 13",
     AdminEmail: "jane13@example.com",
     registeredOn: "20 June 2022",
@@ -538,8 +649,7 @@ export const ListOfAdmins = [
   },
   {
     id: 14,
-    Geography: "Paris",
-    WardType: "",
+    location: "Paris",
     AdminName: "Client name 14",
     AdminEmail: "robert14@example.com",
     registeredOn: "14 June 2022",
@@ -547,8 +657,7 @@ export const ListOfAdmins = [
   },
   {
     id: 15,
-    Geography: "Toronto",
-    WardType: "",
+    location: "Toronto",
     AdminName: "Client name 15",
     AdminEmail: "jenny15@example.com",
     registeredOn: "20 May 2022",
@@ -556,8 +665,7 @@ export const ListOfAdmins = [
   },
   {
     id: 16,
-    Geography: "Sydney",
-    WardType: "",
+    location: "Sydney",
     AdminName: "Client name 16",
     AdminEmail: "ronald16@example.com",
     registeredOn: "10 May 2022",
@@ -565,8 +673,7 @@ export const ListOfAdmins = [
   },
   {
     id: 17,
-    Geography: "Dubai",
-    WardType: "",
+    location: "Dubai",
     AdminName: "Client name 17",
     AdminEmail: "leslie17@example.com",
     registeredOn: "20 May 2022",
@@ -574,8 +681,7 @@ export const ListOfAdmins = [
   },
   {
     id: 18,
-    Geography: "Tokyo",
-    WardType: "",
+    location: "Tokyo",
     AdminName: "Client name 18",
     AdminEmail: "robert18@example.com",
     registeredOn: "14 June 2022",
@@ -583,8 +689,7 @@ export const ListOfAdmins = [
   },
   {
     id: 19,
-    Geography: "Delhi",
-    WardType: "",
+    location: "Delhi",
     AdminName: "Client name 19",
     AdminEmail: "jenny19@example.com",
     registeredOn: "20 June 2022",
@@ -592,8 +697,7 @@ export const ListOfAdmins = [
   },
   {
     id: 20,
-    Geography: "Singapore",
-    WardType: "",
+    location: "Singapore",
     AdminName: "Client name 20",
     AdminEmail: "ronald20@example.com",
     registeredOn: "10 May 2022",
@@ -601,8 +705,7 @@ export const ListOfAdmins = [
   },
   {
     id: 21,
-    Geography: "New York",
-    WardType: "",
+    location: "New York",
     AdminName: "Client name 21",
     AdminEmail: "leslie21@example.com",
     registeredOn: "05 July 2022",
@@ -610,8 +713,7 @@ export const ListOfAdmins = [
   },
   {
     id: 22,
-    Geography: "London",
-    WardType: "",
+    location: "London",
     AdminName: "Client name 22",
     AdminEmail: "ronald22@example.com",
     registeredOn: "24 June 2022",
@@ -619,8 +721,7 @@ export const ListOfAdmins = [
   },
   {
     id: 23,
-    Geography: "Berlin",
-    WardType: "",
+    location: "Berlin",
     AdminName: "Client name 23",
     AdminEmail: "jane23@example.com",
     registeredOn: "20 June 2022",
@@ -628,8 +729,7 @@ export const ListOfAdmins = [
   },
   {
     id: 24,
-    Geography: "Paris",
-    WardType: "",
+    location: "Paris",
     AdminName: "Client name 24",
     AdminEmail: "robert24@example.com",
     registeredOn: "14 June 2022",
@@ -637,8 +737,7 @@ export const ListOfAdmins = [
   },
   {
     id: 25,
-    Geography: "Toronto",
-    WardType: "",
+    location: "Toronto",
     AdminName: "Client name 25",
     AdminEmail: "jenny25@example.com",
     registeredOn: "20 May 2022",
@@ -646,8 +745,7 @@ export const ListOfAdmins = [
   },
   {
     id: 26,
-    Geography: "Sydney",
-    WardType: "",
+    location: "Sydney",
     AdminName: "Client name 26",
     AdminEmail: "ronald26@example.com",
     registeredOn: "10 May 2022",
@@ -655,8 +753,7 @@ export const ListOfAdmins = [
   },
   {
     id: 27,
-    Geography: "Dubai",
-    WardType: "",
+    location: "Dubai",
     AdminName: "Client name 27",
     AdminEmail: "leslie27@example.com",
     registeredOn: "20 May 2022",
@@ -664,8 +761,7 @@ export const ListOfAdmins = [
   },
   {
     id: 28,
-    Geography: "Tokyo",
-    WardType: "",
+    location: "Tokyo",
     AdminName: "Client name 28",
     AdminEmail: "robert28@example.com",
     registeredOn: "14 June 2022",
@@ -673,8 +769,7 @@ export const ListOfAdmins = [
   },
   {
     id: 29,
-    Geography: "Delhi",
-    WardType: "",
+    location: "Delhi",
     AdminName: "Client name 29",
     AdminEmail: "jenny29@example.com",
     registeredOn: "20 June 2022",
@@ -682,8 +777,7 @@ export const ListOfAdmins = [
   },
   {
     id: 30,
-    Geography: "Singapore",
-    WardType: "",
+    location: "Singapore",
     AdminName: "Client name 30",
     AdminEmail: "ronald30@example.com",
     registeredOn: "10 May 2022",

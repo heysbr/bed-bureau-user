@@ -9,7 +9,6 @@ import { DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger, } from "@/c
 import { useRouter } from "next/navigation";
 import { ListOfAdmins as clients } from "@/data/fields";
 import { useState } from "react";
-import Image from "next/image";
 
 export default function AdminTable() {
   const router = useRouter();
@@ -20,29 +19,22 @@ export default function AdminTable() {
   const totalPages = Math.ceil(dataList.length / CARDS_PER_PAGE);
   const startIdx = (page - 1) * CARDS_PER_PAGE;
   const currentData = dataList.slice(startIdx, startIdx + CARDS_PER_PAGE);
-
-  // // function handleRemove(id: number) {
-  // //   setDataList((prev) => prev.filter((item) => item.id !== id));
-  // //   if (page > 1 && currentData.length === 1) {
-  // //     setPage((prev) => prev - 1); // shift back if page gets empty
-  // //   }
-  // }
+  console.table(currentData);
 
   return (
     <>
       <Table>
         <TableHeader>
           <TableRow>
-            <TableHead colSpan={8} className="text-xl font-medium p-5">
+            <TableHead colSpan={8} className="text-xl font-medium p-5 text-left" >
               List of All Admins
             </TableHead>
           </TableRow>
           <TableRow className="bg-app-table-header hover:bg-app-table-header">
             <TableHead className="px-5 text-center">S. No.</TableHead>
-            <TableHead>Geography</TableHead>
-            <TableHead>Ward Type</TableHead>
-            <TableHead>Admin Name</TableHead>
-            <TableHead>Admin Email</TableHead>
+            <TableHead className="text-left">location</TableHead>
+            <TableHead className="text-left">Admin Name</TableHead>
+            <TableHead className="text-left">Admin Email</TableHead>
             <TableHead>Registered On</TableHead>
             <TableHead>Status</TableHead>
             <TableHead>Action</TableHead>
@@ -54,20 +46,19 @@ export default function AdminTable() {
               <TableCell className="font-medium px-5 text-center">
                 {client.id}
               </TableCell>
-              <TableCell>{client.Geography}</TableCell>
-              <TableCell>{client.AdminName}</TableCell>
-              <TableCell>{client.AdminEmail}</TableCell>
+              <TableCell className="text-left" >{client.location}</TableCell>
+              <TableCell className="text-left">{client.AdminName}</TableCell>
+              <TableCell className="text-left">{client.AdminEmail}</TableCell>
               <TableCell>{client.registeredOn}</TableCell>
-              <TableCell>{client.status}</TableCell>
               <TableCell
                 className={`text-sm ${
                   client.status === "Active"
-                    ? "text-[#10940D]"
-                    : client.status === "Pending"
-                    ? "text-[#F8A80C]"
-                    : "text-[#52575C]"
+                  ? "text-[#10940D]"
+                  : client.status === "Pending"
+                  ? "text-[#F8A80C]"
+                  : "text-[#52575C]"
                 }`}
-              >
+                >
                 {client.status}
               </TableCell>
               <TableCell>

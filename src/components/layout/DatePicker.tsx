@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { CalendarIcon } from "lucide-react";
+import { CalendarDays, CalendarIcon } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Calendar } from "@/components/ui/calendar";
@@ -32,11 +32,9 @@ function isValidDate(date: Date | undefined) {
   return !isNaN(date.getTime());
 }
 
-export default function DatePicker() {
+export function DatePicker() {
   const [open, setOpen] = React.useState(false);
-  const [date, setDate] = React.useState<Date | undefined>(
-    new Date("2025-06-01")
-  );
+  const [date, setDate] = React.useState<Date | undefined>(undefined);
   const [month, setMonth] = React.useState<Date | undefined>(date);
   const [value, setValue] = React.useState(formatDate(date));
 
@@ -50,8 +48,8 @@ export default function DatePicker() {
         <Input
           id="date"
           value={value}
-          placeholder="June 01, 2025"
-          className="border-0 pr-10"
+          placeholder="Select"
+          className="border-0 pr-10 "
           onChange={(e) => {
             const date = new Date(e.target.value);
             setValue(e.target.value);
@@ -72,10 +70,9 @@ export default function DatePicker() {
             <Button
               id="date-picker"
               variant="ghost"
-              className="absolute top-1/2 right-2 size-6 -translate-y-1/2"
+              className="absolute top-1/2 right-2 size-6 -translate-y-1/2 "
             >
               <CalendarIcon className="size-3.5" />
-              <span className="sr-only">Select date</span>
             </Button>
           </PopoverTrigger>
           <PopoverContent
@@ -99,6 +96,46 @@ export default function DatePicker() {
           </PopoverContent>
         </Popover>
       </div>
+    </div>
+  );
+}
+
+import { ChevronDownIcon } from "lucide-react";
+
+export default function Calendar22({ label = "" }: { label?: string }) {
+  const [open, setOpen] = React.useState(false);
+  const [date, setDate] = React.useState<Date | undefined>(undefined);
+
+  return (
+    <div className="flex flex-col gap-3 ">
+      <Label htmlFor="date" className="px-1">
+        {label}
+      </Label>
+      <Popover open={open} onOpenChange={setOpen}>
+        <PopoverTrigger asChild>
+          <Button
+            variant="outline"
+            id="date"
+            className="w-50 justify-between font-normal bg-white  rounded-2xl border-0 shadow-[0_4px_5px_0_#E5E9EE4D] "
+          >
+            <span className="p-3">
+              {date ? date.toLocaleDateString() : "Select"}
+            </span>
+            <CalendarDays className="size-3.5" />
+          </Button>
+        </PopoverTrigger>
+        <PopoverContent className="w-auto overflow-hidden p-0" align="start">
+          <Calendar
+            mode="single"
+            selected={date}
+            captionLayout="dropdown"
+            onSelect={(date) => {
+              setDate(date);
+              setOpen(false);
+            }}
+          />
+        </PopoverContent>
+      </Popover>
     </div>
   );
 }

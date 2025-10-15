@@ -9,3 +9,6 @@ export default function Heading({children,className}:HeadingProps) {
     <h3 className={`w-full font-bold text-4xl ${className}`}>{children}</h3>
   )
 }
+
+
+
