@@ -4,6 +4,7 @@ import { Input } from "../ui/input";
 import { Label } from "@/components/ui/label";
 import Error from "./Error";
 
+
 type EmailFieldProps = React.InputHTMLAttributes<HTMLInputElement> & {
   error?: string;
   label?: string;
@@ -23,7 +24,9 @@ export default function EmailField({
       </Label>
       <Input {...props} />
       {/* {error && <Error message={error} />} */}
-      <Error message={error as string} active={error ? true : false }/>
+      <Error message={error as string} active={ false }/>
     </div>
   );
 }
+
+ 

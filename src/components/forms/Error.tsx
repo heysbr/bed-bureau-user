@@ -7,7 +7,7 @@
 export default function Error({
   message,
   classname,
-  active = true,
+  active,
 }: {
   message: string;
   classname?: string;
@@ -16,12 +16,12 @@ export default function Error({
   return (
     <div
       className={`
-        text-xs m-2 text-red-500 transition-all duration-300 ease-out
-        ${active ? "opacity-100 " : "opacity-0 "}
-        ${classname || ""}
+        text-xs m-2 text-red-500 transition-all duration-300 ease-out 
+      ${active ? "h-0" : "h-fit"}
       `}
     >
       {message}
     </div>
   );
 }
+

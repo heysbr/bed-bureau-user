@@ -64,9 +64,8 @@ export default function AnalyticsCard() {
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
         <div>
           <CardTitle className="text-xl font-semibold">Analytics</CardTitle>
-          <CardDescription>01/10/2023 - 31/10/2023</CardDescription>
+          <CardDescription className="text-[#25282B] font-medium">01/10/2023 - 31/10/2023</CardDescription>
         </div>
-
         <div className="flex flex-col md:flex-row md:items-center gap-5 mt-4 sm:mt-0">
           <Select defaultValue="beds">
             <SelectTrigger className="w-fit">

@@ -24,7 +24,6 @@ export default function ProfileSection({logout}:{logout:()=>void}) {
     <>
       <DropdownMenu>
         <DropdownMenuTrigger>
-          {!isLoader ? (
             <div className="flex px-3 gap-2">
               <Image src={ProfileLogo} alt="Profile" />
               <div className="text-xs flex flex-col items-start">
@@ -35,11 +34,8 @@ export default function ProfileSection({logout}:{logout:()=>void}) {
                 <span>Admin</span>
               </div>
             </div>
-          ) : (
-            <div className="w-70">{error || "Loading...."}</div>
-          )}
         </DropdownMenuTrigger>
-        <DropdownMenuContent>
+        <DropdownMenuContent className="translate-y-1.5">
           <DropdownMenuItem>Profile</DropdownMenuItem>
           <DropdownMenuItem onClick={logout}>Logout</DropdownMenuItem>
         </DropdownMenuContent>

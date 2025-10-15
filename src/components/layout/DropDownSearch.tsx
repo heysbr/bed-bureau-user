@@ -25,8 +25,8 @@ export default function DropDownSearch(props: DropDownSearchProps) {
     "option d",
   ];
   return (
-    <Select>
-      <SelectTrigger className="w-60 bg-white rounded-2xl px-4 border-0">
+    <Select >
+      <SelectTrigger className="w-60 bg-white rounded-2xl px-4 border-0 shadow-[0_4px_5px_0_#E5E9EE4D]">
         <SelectValue placeholder={placeholder} />
       </SelectTrigger>
       <SelectContent>

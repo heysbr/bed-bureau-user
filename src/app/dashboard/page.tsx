@@ -22,17 +22,20 @@ export default function Page() {
   return (
     <div className="space-y-6">
       <PageTitle title="Dashboard" />
-      <div className="flex flex-col md:flex-row justify-end gap-5">
-        <DropDownSearch />
+
+      <div className="flex flex-col md:flex-row justify-end gap-5 pb-5">
+        <DropDownSearch  placeholder="All (Geography)" />
         <DropDownSearch placeholder="All (Ward Type)" />
-        <Button className="rounded-2xl bg-white text-black shadow-2xl">
+        <Button className="w-60 md:w-fit rounded-2xl shadow-[0_4px_5px_0_#E5E9EE4D] bg-white text-black  hover:bg-app-primary hover:text-white">
           Clear All
         </Button>
       </div>
-      <div className=" flex flex-col md:grid grid-cols-4 rounded-2xl gap-x-8 gap-y-8">
+
+
+      <div className="flex flex-col md:grid grid-cols-4 rounded-2xl gap-x-8 gap-y-8">
         {cards.map((card, i) => (
           <div
-            className="relative bg-white rounded-lg shadow-[0_12px_26px_0_rgba(188,188,188,0.15)] p-5"
+            className="relative bg-white rounded-lg shadow-[0_12px_26px_0_#BCBCBC26] p-5"
             key={i}
           >
             <span className="font-semibold text-2xl">{card.value}</span>
@@ -50,3 +53,4 @@ export default function Page() {
     </div>
   );
 }
+
