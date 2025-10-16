@@ -14,13 +14,14 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 
-import { AddClientFields as Fields } from "@/data/fields";
+import { AddGeographyFields as Fields } from "@/data/fields";
 import { generateSchema } from "@/lib/SchemaGenerator";
 import { zodResolver } from "@hookform/resolvers/zod";
 // import { useRouter } from "next/router";
 // import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import z from "zod";
+
 
 const schema = generateSchema(Fields);
 type FormData = z.infer<typeof schema>;
@@ -83,13 +84,6 @@ export default function Page() {
                   forget={field?.forgetPassword}
                 />
               ))}
-              <div>
-                <span className="font-bold text-sm">Your Public URL :</span>
-                <br />
-                <span className="font-medium text-app-primary cursor-pointer">
-                  www.bedbureau.com/client/clientname
-                </span>
-              </div>
               <Button variant="appBtn" className="w-full mt-4">
                 Update
               </Button>

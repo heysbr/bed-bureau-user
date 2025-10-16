@@ -24,7 +24,7 @@ export default function AuditTrailsTable() {
           </TableRow>
           <TableRow className="bg-app-table-header hover:bg-app-table-header">
             <TableHead className="px-5 text-center]">S. No.</TableHead>
-            <TableHead className="text-left">Geography</TableHead>
+            <TableHead className="text-left ">Geography</TableHead>
             <TableHead className="text-left">Ward Name</TableHead>
             <TableHead className="text-left">Person Email</TableHead>
             <TableHead className="text-left">Date &amp; Time</TableHead>
@@ -37,8 +37,8 @@ export default function AuditTrailsTable() {
               <TableCell className="font-medium px-5 text-center">
                 {client.id}
               </TableCell>
-              <TableCell className="text-left">{client.geography}</TableCell>
-              <TableCell className="text-left">{client.wardName}</TableCell>
+              <TableCell className="text-left ">{client.geography}</TableCell>
+              <TableCell className="text-left hidden md:block">{client.wardName}</TableCell>
               <TableCell className="text-left">{client.personalEmail}</TableCell>
               <TableCell className="text-left">{client.registeredOn}</TableCell>
               <TableCell className="text-left">{client.operations}</TableCell>

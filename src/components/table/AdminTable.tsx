@@ -1,10 +1,20 @@
 "use client";
-import {Table, TableBody, TableCell, TableHead, TableHeader, TableRow, } from "@/components/ui/table";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
 import { EllipsisVertical } from "lucide-react";
 import Pagination from "@/components/table/Pagination";
 import { DropdownMenu } from "@radix-ui/react-dropdown-menu";
-import { DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger, } from "@/components/ui/dropdown-menu";
-
+import {
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 import { useRouter } from "next/navigation";
 import { ListOfAdmins as clients } from "@/data/fields";
@@ -26,7 +36,10 @@ export default function AdminTable() {
       <Table>
         <TableHeader>
           <TableRow>
-            <TableHead colSpan={8} className="text-xl font-medium p-5 text-left" >
+            <TableHead
+              colSpan={8}
+              className="text-xl font-medium p-5 text-left"
+            >
               List of All Admins
             </TableHead>
           </TableRow>
@@ -46,19 +59,19 @@ export default function AdminTable() {
               <TableCell className="font-medium px-5 text-center">
                 {client.id}
               </TableCell>
-              <TableCell className="text-left" >{client.location}</TableCell>
+              <TableCell className="text-left">{client.location}</TableCell>
               <TableCell className="text-left">{client.AdminName}</TableCell>
               <TableCell className="text-left">{client.AdminEmail}</TableCell>
               <TableCell>{client.registeredOn}</TableCell>
               <TableCell
                 className={`text-sm ${
                   client.status === "Active"
-                  ? "text-[#10940D]"
-                  : client.status === "Pending"
-                  ? "text-[#F8A80C]"
-                  : "text-[#52575C]"
+                    ? "text-[#10940D]"
+                    : client.status === "Pending"
+                    ? "text-[#F8A80C]"
+                    : "text-[#52575C]"
                 }`}
-                >
+              >
                 {client.status}
               </TableCell>
               <TableCell>
@@ -70,18 +83,9 @@ export default function AdminTable() {
                     />
                   </DropdownMenuTrigger>
                   <DropdownMenuContent className=" py-2 border-0 shadow-[0px_12px_26px_0px_#101E730F]">
-                    <DropdownMenuItem
-                      className=" "
-                      onClick={() => router.push(`/manage-client/edit/`)}
-                    >
-                      Edit
-                    </DropdownMenuItem>
-                    <DropdownMenuItem
-                      onClick={() => router.push(`/reset-password/`)}
-                    >
-                      Reset Password
-                    </DropdownMenuItem>
+                    <DropdownMenuItem>Edit</DropdownMenuItem>
                     <DropdownMenuItem>Deactivate</DropdownMenuItem>
+                    <DropdownMenuItem>Reset Password</DropdownMenuItem>
                   </DropdownMenuContent>
                 </DropdownMenu>
               </TableCell>
@@ -89,7 +93,7 @@ export default function AdminTable() {
           ))}
         </TableBody>
       </Table>
-      <Pagination setPage={setPage} page={page} totalPages={totalPages}/>
+      <Pagination setPage={setPage} page={page} totalPages={totalPages} />
     </>
   );
 }

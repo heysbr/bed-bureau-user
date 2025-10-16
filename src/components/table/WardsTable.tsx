@@ -19,6 +19,9 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 import { ListOfWards as clients } from "@/data/fields";
+import { Dialog, DialogContent, DialogTitle, DialogTrigger } from "@radix-ui/react-dialog";
+import { Button } from "../ui/button";
+import { DialogHeader } from "../ui/dialog";
 
 export default function WardsTable() {
   const router = useRouter();
@@ -92,17 +95,10 @@ export default function WardsTable() {
                       size={16}
                     />
                   </DropdownMenuTrigger>
-                  <DropdownMenuContent className=" py-2 border-0 shadow-[0px_12px_26px_0px_#101E730F]">
-                    <DropdownMenuItem
-                      className=" "
-                      onClick={() => router.push(`/manage-client/edit/`)}
-                    >
-                      Edit
-                    </DropdownMenuItem>
-                    <DropdownMenuItem
-                      onClick={() => router.push(`/reset-password/`)}
-                    >
-                      Reset Password
+                  <DropdownMenuContent className="py-2 border-0 shadow-[0px_12px_26px_0px_#101E730F]">
+                    <DropdownMenuItem>Manage</DropdownMenuItem>
+                    <DropdownMenuItem>Edit
+                      
                     </DropdownMenuItem>
                     <DropdownMenuItem>Deactivate</DropdownMenuItem>
                   </DropdownMenuContent>
@@ -116,3 +112,6 @@ export default function WardsTable() {
     </>
   );
 }
+
+
+

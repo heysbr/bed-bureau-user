@@ -2,7 +2,6 @@
 import FormField from "@/components/forms/FormField";
 import PageTitle from "@/components/layout/PageTittle";
 import SearchField from "@/components/layout/SearchField";
-import ClientTable from "@/components/table/ClientTable";
 import WardsTable from "@/components/table/WardsTable";
 import { Button } from "@/components/ui/button";
 
@@ -14,7 +13,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 
-import { AddClientFields as Fields } from "@/data/fields";
+import { AddWardFields as Fields } from "@/data/fields";
 import { generateSchema } from "@/lib/SchemaGenerator";
 import { zodResolver } from "@hookform/resolvers/zod";
 // import { useRouter } from "next/router";
@@ -63,7 +62,7 @@ export default function Page() {
           <DialogContent className="px-0 rounded-lg">
             <DialogHeader>
               <DialogTitle className="text-2xl font-semibold text-center">
-                Add Client
+                Add Ward
               </DialogTitle>
             </DialogHeader>
 
@@ -83,13 +82,6 @@ export default function Page() {
                   forget={field?.forgetPassword}
                 />
               ))}
-              <div>
-                <span className="font-bold text-sm">Your Public URL :</span>
-                <br />
-                <span className="font-medium text-app-primary cursor-pointer">
-                  www.bedbureau.com/client/clientname
-                </span>
-              </div>
               <Button variant="appBtn" className="w-full mt-4">
                 Update
               </Button>

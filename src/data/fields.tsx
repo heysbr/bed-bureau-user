@@ -84,6 +84,70 @@ export const AddClientFields: FieldConfig[] = [
   },
 ];
 
+export const AddWardFields: FieldConfig[] = [
+  {
+    name: "wardType",
+    type: "select" as FieldType,
+    placeholder: "Enter Ward Type",
+    label: "Ward Type",
+  },
+  {
+    name: "geography",
+    type: "select" as FieldType,
+    placeholder: "Select Location",
+    label: "Ward Type",
+  },
+  {
+    name: "wardName",
+    type: "text" as FieldType,
+    placeholder: "Enter Ward Name",
+    label: "Ward Name",
+  },
+  {
+    name: "noOfBeds",
+    type: "text" as FieldType,
+    placeholder: "Enter No of Beds",
+    label: "Number of Beds",
+  },
+];
+
+export const AddGeographyFields: FieldConfig[] = [
+  {
+    name: "geography",
+    type: "text" as FieldType,
+    placeholder: "Enter Geography Name",
+    label: "Geography Name",
+  },
+];
+
+export const AddAdminFields: FieldConfig[] = [
+  {
+    name: "geography",
+    type: "select" as FieldType,
+    placeholder: "Select Location",
+    label: "Ward Type",
+  },
+  {
+    name: "wardType",
+    type: "select" as FieldType,
+    placeholder: "Enter Ward Type",
+    label: "Ward Type",
+  },
+
+  {
+    name: "adminContactName",
+    type: "text" as FieldType,
+    placeholder: "Enter Admin Name",
+    label: "Admin Contact Name",
+  },
+  {
+    name: "emailId",
+    type: "email" as FieldType,
+    placeholder: "Enter Email ID",
+    label: "Email ID",
+  },
+];
+
 export const UpdateProfileFields: FieldConfig[] = [
   {
     name: "Client Name",
@@ -245,9 +309,51 @@ export const ListOfAuditTrails = [
     personalEmail: "sophia.lee@example.com",
     registeredOn: "05 August 2022, 01:15 PM",
     operations: "Client Logged In",
-  }
+  },
 ];
 
+export const WorkForceTable = [
+  {
+    id: 1,
+    geography: "Mid-Provide",
+    wardName: "Orthopedic",
+    personalEmail: "leslie.alexander@example.com",
+    registeredOn: "05 July 2022, 10:30 AM",
+    operations: "Client Logged In",
+  },
+  {
+    id: 2,
+    geography: "South West",
+    wardName: "CICC - IMC",
+    personalEmail: "ronald.richards@example.com",
+    registeredOn: "24 June 2022, 05:00 PM",
+    operations: "Client Logged In",
+  },
+  {
+    id: 3,
+    geography: "Berlin",
+    wardName: "Tower Ward",
+    personalEmail: "jane.cooper@example.com",
+    registeredOn: "20 June 2022, 12:00 PM",
+    operations: "Client Logged In",
+  },
+  {
+    id: 4,
+    geography: "Mid-Provide",
+    wardName: "Gibson Ward",
+    personalEmail: "robert.fox@gmail.com",
+    registeredOn: "14 June 2022, 01:30 PM",
+    operations: "Client Logged In",
+  },
+  {
+    id: 5,
+    geography: "South West",
+    wardName: "Mayfield Units",
+    personalEmail: "jenny.wilson@example.com",
+    registeredOn: "10 May 2022, 10:30 AM",
+    operations: "Bed occupied to NHS number (6473638837)",
+  },
+];
 
 export const clients = [
   {

@@ -10,15 +10,17 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { useRouter } from "next/navigation";
 
 export default function ProfileSection({logout}:{logout:()=>void}) {
   const { adminDetail, isLoader, error } = useAppSelector(
     (state) => state.admin
   );
 
-  // const handleClick = ()=>{
-  //   console.log( { adminDetail, isLoader, error })
-  // }
+  const router = useRouter();
+  const handleProfile = ()=>{
+    router.push("/profile")
+  }
 
   return (
     <>
@@ -36,7 +38,7 @@ export default function ProfileSection({logout}:{logout:()=>void}) {
             </div>
         </DropdownMenuTrigger>
         <DropdownMenuContent className="translate-y-1.5">
-          <DropdownMenuItem>Profile</DropdownMenuItem>
+          <DropdownMenuItem onClick={handleProfile}>Profile</DropdownMenuItem>
           <DropdownMenuItem onClick={logout}>Logout</DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
