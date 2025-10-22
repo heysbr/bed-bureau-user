@@ -165,6 +165,7 @@ import FormField from "../forms/FormField";
 import { Button } from "../ui/button";
 import Image from "next/image";
 import ErrorIcon from "@/assets/icons/ErrorIcon.svg";
+import Link from "next/link";
 
 export default function WardsTable() {
   const router = useRouter();
@@ -213,7 +214,7 @@ export default function WardsTable() {
               <TableCell className="font-medium px-5 text-center">
                 {client.id}
               </TableCell>
-              <TableCell className="text-left">{client.Geography}</TableCell>
+              <TableCell className="text-left"><Link href={`/dashboard/manage-wards/${client.id}/`}>{client.Geography}</Link></TableCell>
               <TableCell className="text-left">{client.WardName}</TableCell>
               <TableCell className="text-left">{client.WardType}</TableCell>
               <TableCell>{client.NoOfBeds}</TableCell>

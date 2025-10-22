@@ -54,7 +54,6 @@ export default function Page() {
       <PageTitle title="Manage Wards"/>
       <div className="flex justify-between gap-5">
         <SearchField />
-
         <Dialog>
           <DialogTrigger asChild>
             <Button variant="appBtn">Add Ward</Button>
@@ -65,8 +64,7 @@ export default function Page() {
                 Add Ward
               </DialogTitle>
             </DialogHeader>
-
-
+            
             <form
               onSubmit={handleSubmit(submit)}
               className="flex flex-col justify-between px-5 md:px-10 pb-4 space-y-6 "
