@@ -2,27 +2,63 @@ import Image from "next/image";
 import ProfileLogo from "@/assets/icons/profile_photo.svg";
 import { useAppSelector } from "@/store/hooks";
 
-export default function ProfileSection() {
-  const { adminDetail, isLoader, error } = useAppSelector((state) => state.admin);
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { useRouter } from "next/navigation";
 
+export default function ProfileSection({logout}:{logout:()=>void}) {
+  const { adminDetail, isLoader, error } = useAppSelector(
+    (state) => state.admin
+  );
 
-  // const handleClick = ()=>{
-  //   console.log( { adminDetail, isLoader, error })
-  // }     
+  const router = useRouter();
+  const handleProfile = ()=>{
+    router.push("/profile")
+  }
 
   return (
     <>
-      {!isLoader ? <div className="hidden md:flex w-70 items-center">
-        <Image src={ProfileLogo} alt="Profile" />
-        <div className="text-xs mx-3">
-          <span className="text-sm">Hi, {adminDetail?.user?.contactName}</span>
-          <br />
-          <span>{adminDetail?.user?.email}</span>
-          <br />
-          <span>Admin</span>
-        </div>
-      </div> : <div className="w-70">{error || "Loading...."}</div>}
-      
+      <DropdownMenu>
+        <DropdownMenuTrigger className="hidden md:block">
+            <div className="flex px-3 gap-2">
+              <Image src={ProfileLogo} alt="Profile" />
+              <div className="text-xs flex flex-col items-start">
+                <span className="text-sm">
+                  Hi, {adminDetail?.user?.contactName}
+                </span>
+                <span>{adminDetail?.user?.email}</span>
+                <span>Admin</span>
+              </div>
+            </div>
+        </DropdownMenuTrigger>
+        <DropdownMenuContent className="translate-y-1.5">
+          <DropdownMenuItem onClick={handleProfile}>Profile</DropdownMenuItem>
+          <DropdownMenuItem onClick={logout}>Logout</DropdownMenuItem>
+        </DropdownMenuContent>
+      </DropdownMenu>
     </>
   );
 }
+
+// {!isLoader ? (
+//         <div className="hidden md:flex w-70 items-center">
+//           <Image src={ProfileLogo} alt="Profile" />
+//           <div className="text-xs mx-3 flex flex-col  items-start">
+//             <span className="text-sm">
+//               Hi, {adminDetail?.user?.contactName}
+//             </span>
+//             <br />
+//             <span>{adminDetail?.user?.email}</span>
+//             <br />
+//             <span>Admin</span>
+//           </div>
+//         </div>
+//       ) : (
+//         <div className="w-70">{error || "Loading...."}</div>
+//       )}

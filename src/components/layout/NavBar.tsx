@@ -22,8 +22,8 @@ import { AppDispatch } from "@/store/store";
 import { adminLogout } from "@/store/actions/adminAction";
 import ProfileSection from "./ProfileSection";
 
-import GridIcon from "@/assets/icons/grid.svg"
-import GridIconSelected from "@/assets/icons/grid_selected.svg"
+import Grid from "@/assets/icons/grid.svg";
+import GridMuted from "@/assets/icons/grid-muted.svg";
 
 export default function NavBar() {
   const router = useRouter();
@@ -31,11 +31,11 @@ export default function NavBar() {
   const [toggleTab, setToggleTab] = useState(pathname);
 
   const navItems = [
-    { label: "Manage Wards", path: "/manage-client" },
-    { label: "Manage Admin", path: "/update-profile" },
-    { label: "Audit Trails", path: "/reset-password" },
-    { label: "Reports", path: "/reset-password" },
-    { label: "Geography", path: "/reset-password" },
+    { label: "Manage Wards", path: "/dashboard/manage-wards" },
+    { label: "Manage Admin", path: "/dashboard/manage-admin" },
+    { label: "Audit Trails", path: "/dashboard/audit-trails" },
+    { label: "Reports", path: "/dashboard/reports" },
+    { label: "Geography", path: "/dashboard/geography" },
   ];
   useEffect(() => {
     setToggleTab(pathname);
@@ -43,9 +43,10 @@ export default function NavBar() {
 
   const dispatch = useDispatch<AppDispatch>();
 
-  const handleLogout = async () => {
+const handleLogout = async () => {
     try {
       await dispatch(adminLogout());
+      localStorage.clear();
       toast.success("Logout successful!");
       router.push("/login"); // or wherever you want to redirect
     } catch (err: unknown) {
@@ -54,6 +55,13 @@ export default function NavBar() {
     }
   };
 
+
+
+
+  const handleClick = (path: string) => {
+    setToggleTab(path);
+    router.push(path);
+  };
   return (
     <div className="flex border h-18 bg-white items-center ">
       {/* Left: Logo */}
@@ -63,39 +71,24 @@ export default function NavBar() {
 
       {/* Desktop Menu */}
       <div className="hidden md:flex flex-1 justify-between items-center px-5">
-        <div className="flex gap-4">
-          <Image src={GridIcon} alt="grid" className="text-[]"/>
-          {/* <Image src={GridIconSelected} alt="grid" className=""/> */}
-
-          {navItems.map((item,i) => (
+        <div className="flex gap-4 items-center">
+          <Image
+            src={toggleTab === "/dashboard" ? Grid : GridMuted}
+            alt="grid"
+            className=" size-9"
+            onClick={() => handleClick("/dashboard")}
+          />
+          {navItems.map((item, i) => (
             <Button
               // key={item.path}
               key={i}
-              variant={
-                toggleTab.includes(item.path) ? "navBtnActive" : "navBtn"
-              }
-              onClick={() => {
-                setToggleTab(item.path);
-                router.push(item.path);
-              }}
+              variant={toggleTab === item.path ? "navBtnActive" : "navBtn"}
+              onClick={() => handleClick(item.path)}
             >
               {item.label}
             </Button>
           ))}
         </div>
-
-        {/* <div className="flex items-center">
-          <Button
-            className="mx-5"
-            variant="navBtn"
-            onClick={handleLogout}
-          >
-            <Image src={LogoutIcon} alt="Logout" />
-            Logout
-          </Button>
-          <div className="h-8 bg-[#DCDFE9] w-[1px]" />
-
-        </div> */}
       </div>
 
       {/* Mobile Menu Button */}
@@ -120,6 +113,19 @@ export default function NavBar() {
             </SheetHeader>
 
             <div className="flex flex-col gap-4 m-6">
+              <SheetClose asChild key={"/dashboard"}>
+                <Button
+                  variant={
+                    toggleTab === "/dashboard" ? "navBtnActive" : "navBtn"
+                  }
+                  onClick={() => {
+                    setToggleTab("/dashboard");
+                    router.push("/dashboard");
+                  }}
+                >
+                  Dashboard
+                </Button>
+              </SheetClose>
               {navItems.map((item) => (
                 <SheetClose asChild key={item.path}>
                   <Button
@@ -135,11 +141,7 @@ export default function NavBar() {
                   </Button>
                 </SheetClose>
               ))}
-              <Button
-                className="mt-4"
-                variant="navBtn"
-                onClick={handleLogout}
-              >
+              <Button className="mt-4" variant="navBtn" onClick={handleLogout}>
                 <Image src={LogoutIcon} alt="Logout" />
                 Logout
               </Button>
@@ -149,7 +151,7 @@ export default function NavBar() {
       </div>
 
       {/* Right: Profile */}
-      <ProfileSection/>
+      <ProfileSection logout={handleLogout} />
     </div>
   );
 }

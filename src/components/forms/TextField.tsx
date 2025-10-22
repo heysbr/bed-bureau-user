@@ -21,7 +21,8 @@ export default function TextField({
         {required && <span className="text-red-500">*</span>}
       </Label>
       <Input {...props} />
-      {error && <Error message={error} />}
+      {/* {error && <Error message={error} active={error ? true : false }/>} */}
+      <Error message={error as string} active={error ? true : false }/>
     </div>
   );
 }

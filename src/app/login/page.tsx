@@ -17,8 +17,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState, AppDispatch } from "@/store/store";
 import { adminLogin } from "@/store/actions/adminAction";
 import toast from "react-hot-toast";
-import { LoaderCircle } from "lucide-react";
 import Heading from "@/components/layout/Heading";
+import { Card, CardContent } from "@/components/ui/card";
+import { useState } from "react";
 
 // const schema = generateSchema(LoginFields);
 // type FormData = z.infer<typeof schema>;
@@ -50,19 +51,21 @@ export default function LoginPage() {
         email: String(data.email),
         password: String(data.password),
       };
-      // const result = 
+      // const result =
       await dispatch(adminLogin(loginPayload)).unwrap();
       toast.success("Login successful!"); // ✅ success toast
-      router.push("/manage-client"); // Redirect to manage-client
+      router.push("/dashboard"); // Redirect to manage-client
     } catch (err: unknown) {
       const errorMessage = err instanceof Error ? err.message : "Login failed";
       toast.error(errorMessage); // ❌ error toast
     }
   };
 
+  const [toggleWidth, setToggleWidth] = useState(false);
+
   return (
     <div className="relative h-screen bg-app-bg flex md:px-20 md:items-center ">
-      <Image src={Logo} alt="logo" className="absolute top-5 left md:left-25" />
+      <Image src={Logo} alt="logo" className="absolute top-5 left-5 md:left-25" />
       <div className="flex-1 hidden md:flex flex-col items-center justify-center">
         <span className="text-4xl m-5">
           Welcom to
@@ -73,13 +76,13 @@ export default function LoginPage() {
       </div>
 
       <div className="flex flex-col md:h-full gap-y-5 p-5 w-full md:w-fit py-20 md:items-end  md:justify-center">
-        <PageTitle className="md:hidden" />
-       
+        <PageTitle className="md:hidden" title="Login" />
+
         <form
           onSubmit={handleSubmit(submit)}
-          className="flex flex-col bg-white md:p-20 border p-5 space-y-2 md:space-y-6 w-full md:w-125 rounded-lg shadow-[0px_4px_15px_0px_#DFE5F0]"
+          className={`flex flex-col bg-white md:p-20 border p-5 space-y-2 md:space-y-6 w-full md:w-125 rounded-lg shadow-[0px_4px_15px_0px_#DFE5F0]`}
         >
-           <Heading className="mb-10 hidden md:block">Login</Heading>
+          <Heading className="mb-10 hidden md:block">Login</Heading>
           {LoginFields.map((field, index) => (
             <FormField
               key={index}

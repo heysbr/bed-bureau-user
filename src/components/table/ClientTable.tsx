@@ -1,9 +1,20 @@
 "use client";
-import {Table, TableBody, TableCell, TableHead, TableHeader, TableRow, } from "@/components/ui/table";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
 import { EllipsisVertical } from "lucide-react";
 import Pagination from "@/components/table/Pagination";
 import { DropdownMenu } from "@radix-ui/react-dropdown-menu";
-import { DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger, } from "@/components/ui/dropdown-menu";
+import {
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import { useRouter } from "next/navigation";
 import { clients } from "@/data/fields";
 import { useState } from "react";
@@ -17,13 +28,6 @@ export default function Page() {
   const totalPages = Math.ceil(dataList.length / CARDS_PER_PAGE);
   const startIdx = (page - 1) * CARDS_PER_PAGE;
   const currentData = dataList.slice(startIdx, startIdx + CARDS_PER_PAGE);
-
-  // // function handleRemove(id: number) {
-  // //   setDataList((prev) => prev.filter((item) => item.id !== id));
-  // //   if (page > 1 && currentData.length === 1) {
-  // //     setPage((prev) => prev - 1); // shift back if page gets empty
-  // //   }
-  // }
 
   return (
     <>
@@ -95,7 +99,7 @@ export default function Page() {
           ))}
         </TableBody>
       </Table>
-      <Pagination setPage={setPage} page={page} totalPages={totalPages}/>
+      <Pagination setPage={setPage} page={page} totalPages={totalPages} />
     </>
   );
 }

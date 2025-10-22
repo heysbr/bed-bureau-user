@@ -45,7 +45,7 @@ class DataService {
   private setAuthHeader() {
     const authDetail = localStorage.getItem("authorization");
     if (authDetail) {
-      const token = JSON.parse(authDetail).token;
+      const token = JSON.parse(authDetail);
       axios.defaults.headers.common["Authorization"] = token;
     }
   }

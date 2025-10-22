@@ -1,16 +1,19 @@
 "use client";
 import NavBar from "@/components/layout/NavBar";
-import { Button } from "@/components/ui/button";
-import { useRouter } from "next/navigation";
+import Image from "next/image";
+import NotFoundImg from "@/assets/icons/NoDataFound.png";
 
 export default function Error() {
-  const router = useRouter();
   return (
     <>
-      <NavBar />
-      <div className="h-[80vh] flex flex-col justify-center items-center gap-4 px-10">
-        <h2 className="text-center  text-5xl font-semibold m-10 text-app-form-label">Page Not Found</h2>
-        <Button variant={"appBtn"} onClick={() => router.push("/login")}>Go to Login Page</Button>
+      <div className={`h-screen bg-app-bg`}>
+        <NavBar />
+        <div className="p-5 md:py-10 md:px-25 md:pb-25 space-y-6">
+          <div className={`text-2xl font-semibold`}>Dashboard</div>
+          <div className="flex items-center justify-center h-96">
+            <Image src={NotFoundImg} alt="not" className="object-cover w-96"/>
+          </div>
+        </div>
       </div>
     </>
   );
